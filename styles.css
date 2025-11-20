@@ -1,0 +1,161 @@
+/* --- Global Reset and Fonts --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Deep black background for the cyberpunk aesthetic */
+    background-color: #000000; 
+    color: #ffffff;
+    font-family: 'Space Mono', monospace; /* Base font for a tech feel */
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* --- Utility Variables (Neon Colors) --- */
+:root {
+    --neon-orange: #ff7f00;
+    --neon-blue: #00ffff;
+    --text-color: #ffffff;
+}
+
+/* --- Header/Navigation --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent header */
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.logo-text {
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--neon-orange);
+}
+
+.cta-header {
+    padding: 10px 20px;
+    background-color: var(--neon-orange);
+    color: #000000;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    /* Neon glow effect */
+    box-shadow: 0 0 10px var(--neon-orange), 0 0 20px var(--neon-orange); 
+    transition: background-color 0.3s;
+}
+
+.cta-header:hover {
+    background-color: #ffaa40;
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* To push CTA button to the bottom */
+    padding-top: 150px;
+    padding-bottom: 50px;
+    
+    /* Background Image: IMPORTANT - You would use the generated image here */
+    background-image: url('your_dial_dudes_hero_image.jpg'); 
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    
+    /* Optional: Overlay for better text contrast, if needed */
+    /* &:before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.2); } */
+}
+
+.hero-content {
+    /* Position text to the top-left area, similar to the image layout */
+    align-self: flex-start; 
+    padding-left: 100px;
+    max-width: 800px;
+    z-index: 1; /* Ensure text is above background image layer */
+}
+
+.hero-headline {
+    font-family: 'Oswald', sans-serif;
+    font-size: 8vw; /* Responsive font size */
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: -3px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Subtle white glow */
+}
+
+.hero-subhead {
+    font-size: 20px;
+    color: var(--neon-orange);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* --- Main CTA Button (Bottom Center) --- */
+.cta-main {
+    padding: 15px 40px;
+    background-color: transparent;
+    border: 2px solid var(--neon-orange);
+    color: var(--neon-orange);
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+    /* Neon glow effect */
+    box-shadow: 0 0 5px var(--neon-orange), 0 0 15px rgba(255, 127, 0, 0.5);
+    transition: background-color 0.3s, color 0.3s;
+    z-index: 1;
+}
+
+.cta-main:hover {
+    background-color: var(--neon-orange);
+    color: #000000;
+}
+
+/* --- Media Queries for Mobile Responsiveness --- */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 15px 20px;
+    }
+    .nav-links {
+        display: none; /* Hide complex nav on mobile, use a hamburger menu in production */
+    }
+    .hero-content {
+        padding-left: 20px;
+        align-self: center;
+        text-align: center;
+    }
+    .hero-headline {
+        font-size: 12vw;
+    }
+}
